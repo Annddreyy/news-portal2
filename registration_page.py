@@ -53,7 +53,7 @@ def registration_page():
 def create_image(image_path, folder, file_type):
     image_bytes = bytes(image_path)
 
-    github_token = ''
+    github_token = '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'
 
     g = Github(github_token)
 
