@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta property="og:title" content="Российский инсайдер" />
+    <meta property="og:description" content="Сайт о самых актуальных новостях России и мира" />
+    <meta property="og:url" content="https://127.0.0.1:5000/" />
+    <meta property="og:image" content="https://github.com/Annddreyy/news-portal/blob/main/static/images/bronse_horsmen.png?raw=true" />
+    <meta property="og:image:alt" content="Медный всадник" />
+
+    <meta name="twitter:title" content="Российский инсайдер" />
+    <meta name="twitter:description" content="Сайт о самых актуальных новостях России и мира" />
+    <meta name="twitter:url" content="https://127.0.0.1:5000/" />
+    <meta name="twitter:image:src" content="https://github.com/Annddreyy/news-portal/blob/main/static/images/bronse_horsmen.png?raw=true" />
+    <meta name="twitter:image:alt" content="Медный всадник" />
+
+    <title>Авторизация</title>
+    <link rel="shortcut icon" href="static/images/bronse_horsmen.ico" type="image/x-icon">
+    <meta name="description" content="Авторизация пользователей">
+
+    <link rel="stylesheet" href="static/styles/style.css">
+    <link rel="stylesheet" href="static/styles/form.css">
+</head>
+<body>
+    <div class="circles">
+        <svg height="100" width="100" class="circle">
+            <circle r="45" cx="50" cy="50" fill="rgba(73, 99, 193, 0.2)" />
+        </svg>
+        <svg height="100" width="100" class="circle">
+            <circle r="45" cx="50" cy="50" fill="rgba(73, 99, 193, 0.2)" />
+        </svg>
+        <svg height="100" width="100" class="circle">
+            <circle r="45" cx="50" cy="50" fill="rgba(73, 99, 193, 0.2)" />
+        </svg>
+        <svg height="100" width="100" class="circle">
+            <circle r="45" cx="50" cy="50" fill="rgba(73, 99, 193, 0.2)" />
+        </svg>
+        <svg height="100" width="100" class="circle">
+            <circle r="45" cx="50" cy="50" fill="rgba(73, 99, 193, 0.2)" />
+        </svg>
+    </div>
+    <section class="form-section authorization">
+        <div class="content">
+            <h1>Авторизоваться</h1>
+            {% if error_message: %}
+                <p>{{ error_message }}</p>
+            {% endif %}
+            <form action="/authorization" method="post">
+                <label for="login">Логин</label>
+                <input type="text" name="login" id="login">
+                <label for="password">Пароль</label>
+                <input type="password" name="password" id="password" autocomplete="current-password">
+                <input type="submit" value="Войти&nbsp;→">
+            </form>
+            <footer class="bottom">
+                <span>Нет аккаунта?</span>
+                <button onclick="location.href='/registration'">Зарегестрироваться</button>
+            </footer>
+        </div>
+    </section>
+</body>
+</html>

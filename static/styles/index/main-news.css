@@ -1,0 +1,40 @@
+.main-news {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2em;
+    background: url("../../images/new-news/hero-1.jpg") no-repeat;
+    background-size: cover;
+    background-position-y: 50%;
+    padding: 6em 0;
+}
+
+.main-news h2 {
+    font-size: var(--fz-h1);
+    color: var(--color-white);
+}
+
+.main-news a {
+    position: relative;
+    width: max-content;
+    padding: 16px 24px;
+    padding-right: 40px;
+    border-radius: 2em;
+    background-color: var(--color-dark-blue);
+    transition: transform .5s;
+}
+
+.main-news a::after {
+    position: absolute;
+    right: 10%;
+    content: "→";
+    transition: right .5s;
+}
+
+.main-news a:hover::after {
+    right: 7%;
+}
+
+.main-news a:hover {
+    transform: translateY(-4px);
+}

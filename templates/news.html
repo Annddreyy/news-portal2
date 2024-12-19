@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta property="og:title" content="Российский инсайдер" />
+    <meta property="og:description" content="Сайт о самых актуальных новостях России и мира" />
+    <meta property="og:url" content="https://127.0.0.1:5000/" />
+    <meta property="og:image" content="https://github.com/Annddreyy/news-portal/blob/main/static/images/bronse_horsmen.png?raw=true" />
+    <meta property="og:image:alt" content="Медный всадник" />
+
+    <meta name="twitter:title" content="Российский инсайдер" />
+    <meta name="twitter:description" content="Сайт о самых актуальных новостях России и мира" />
+    <meta name="twitter:url" content="https://127.0.0.1:5000/" />
+    <meta name="twitter:image:src" content="https://github.com/Annddreyy/news-portal/blob/main/static/images/bronse_horsmen.png?raw=true" />
+    <meta name="twitter:image:alt" content="Медный всадник" />
+
+    <title>Новость</title>
+    <link rel="shortcut icon" href="/static/images/bronse_horsmen.ico" type="image/x-icon">
+    <meta name="description" content="Новость">
+
+    <script src="https://kit.fontawesome.com/df4c96a155.js" crossorigin="anonymous" defer></script>
+
+    <link rel="stylesheet" href="/static/styles/style.css">
+    <link rel="stylesheet" href="/static/styles/header.css">
+    <link rel="stylesheet" href="/static/styles/header-navigation.css">
+    <link rel="stylesheet" href="/static/styles/footer.css">
+    <link rel="stylesheet" href="/static/styles/news/top-part.css">
+    <link rel="stylesheet" href="/static/styles/news/news-text.css">
+    <link rel="stylesheet" href="/static/styles/news/author-card.css">
+    <link rel="stylesheet" href="/static/styles/news/another-news.css">
+    <link rel="stylesheet" href="/static/styles/news/images.css">
+    <link rel="stylesheet" href="/static/styles/news/quote.css">
+    <link rel="stylesheet" href="/static/styles/news/tags.css">
+    <link rel="stylesheet" href="/static/styles/news/support.css">
+    <link rel="stylesheet" href="/static/styles/news/news.css">
+    <link rel="stylesheet" href="/static/styles/news/comments.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <section class="header-top">
+                <div class="header-top-left">
+                    <button>&Congruent;</button>
+                    <span>Разделы</span>
+                    <form action="#" method="get">
+                        <i class="fas fa-search" aria-hidden="true"></i>
+                        <input type="search" name="search" id="search" placeholder="Поиск">
+                    </form>
+                </div>
+                <div class="header-top-right">
+                    {% if user_information: %}
+                        {% if user_information['photo']: %}
+                            <img src="https://github.com/Annddreyy/news-portal-images/blob/main/users/{{ user_information['photo'] }}?raw=true" alt="фотография">
+                        {% else: %}
+                            <i class="fas fa-user" aria-hidden="true"></i>
+                        {% endif %}
+                        <span>{{ user_information['surname'] }}&nbsp;{{ user_information['name'][0] }}.</span>
+                    {% else: %}
+                        <i class="fas fa-user" aria-hidden="true"></i>
+                        <button class="sign-in-button" onclick="location.href='/authorization'">Войти</button>
+                    {% endif %}
+                </div>
+            </section>
+            <section class="header-bottom">
+                <img src="/static/images/bronse_horsmen.png" alt="Медный всадник" aria-hidden="true">
+                <span>Новости России и мира</span>
+                <h1>Российский Инсайдер</h1>
+                <time datetime="2024-12-12" id="now-date">Четверг, 12 декабря, 2024</time>
+                <span><i class="fas fa-sun" style="color: rgb(244, 189, 8);"></i>&nbsp;&nbsp;-10 <sup>o</sup>C</span>
+                <script>
+                    const now = new Date();
+
+                    const options = {
+                        weekday: 'long',
+                        day: 'numeric',
+                        month: 'long',
+                        year: 'numeric',
+                    };
+
+                    const formattedDate = now.toLocaleDateString('ru-RU', options);
+
+                    let date = document.getElementById('now-date');
+                    date.innerText = formattedDate;
+                </script>
+            </section>
+        </div>
+    </header>
+    <nav class="header-navigation">
+        <div class="container">
+            <ul>
+                <li><a href="#">Новости</a></li>
+                <li><a href="#">Наука</a></li>
+                <li><a href="#">Жизнь</a></li>
+                <li><a href="#">Путешествия</a></li>
+                <li><a href="#">Экономика</a></li>
+                <li><a href="#">Искусство</a></li>
+                <li><a href="#">Спорт</a></li>
+                <li><a href="#">Люди</a></li>
+                <li><a href="#">Здоровье</a></li>
+                <li><a href="#">Образование</a></li>
+            </ul>
+        </div>
+    </nav>
+    <main>
+        <section class="top-part">
+            <div class="container">
+                <div class="top-information">
+                    <span>Наука</span>
+                    <div class="right-information">
+                        <i class="fa fa-home" aria-hidden="true"></i>
+                        <button>←&nbsp;Предыдущая</button>
+                        <button>Следующая&nbsp;→</button>
+                    </div>
+                </div>
+                <h1>
+                    <i class="fa fa-bookmark" aria-hidden="true"></i>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, iusto.
+                </h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, tempora?</p>
+                <div class="bottom-information">
+                    <div class="indicators">
+                        <div class="time">
+                            <i class="fa fa-clock" aria-hidden="true"></i>
+                            <time datetime="2024-12-12">Дек 12, 15:30</time>
+                        </div>
+                        <div class="likes">
+                            <i class="fa fa-heart" aria-hidden="true"></i>
+                            <span>245</span>
+                        </div>
+                        <div class="comments">
+                            <i class="fa fa-comment" aria-hidden="true"></i>
+                            <span>23</span>
+                        </div>
+                    </div>
+                    <div class="shares">
+                        <i class="fa fa-share" aria-hidden="true"></i>
+                        <span>216</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="news-text">
+            <article class="author-card" onclick="location.href='#'">
+                <div class="author">
+                    <img src="/static/images/author2.png" alt="Фото">
+                    <h2>Петрова Анастасия</h2>
+                    <span>Путешественник</span>
+                </div>
+                <span>82 статьи</span>
+                <div class="social">
+                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                    <i class="fa fa-instagram" aria-hidden="true"></i>
+                </div>
+                <footer class="bottom">
+                    <a href="#">Узнать о авторе</a>
+                </footer>
+            </article>
+            <article class="another-news" onclick="location.href='#'">
+                <h2>Статья по теме</h2>
+                <img src="/static/images/new-news/hero-1.jpg" alt="Фото">
+                <h3>Lorem ipsum, dolor sit amet consectetur adipisicing.</h3>
+                <p>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Atque, quaerat deleniti! Aliquid, tempore
+                    dolores quae, sint expedita cupiditate dolore temporibus repudiandae, eligendi possimus provident?
+                </p>
+                <div class="bottom">
+                    <div class="views">
+                        <i class="fa fa-eye" aria-hidden="true"></i>
+                        <span>1426</span>
+                    </div>
+                    <div class="comments">
+                        <i class="fa fa-comments" aria-hidden="true"></i>
+                        <span>102</span>
+                    </div>
+                </div>
+            </article>
+            <div class="container">
+                <section class="news-text-block">
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab vitae temporibus quod officiis
+                        perspiciatis
+                        quos accusamus nihil voluptatum nobis repellendus! Corrupti, tempora? Deleniti accusamus
+                        molestias vitae
+                        iure similique possimus id consequuntur impedit voluptate laboriosam. Doloribus, eum pariatur
+                        doloremque
+                        dolorum provident quam. Iure ea consectetur accusamus earum, provident magnam reiciendis quod
+                        laudantium
+                        asperiores odio pariatur molestias aut repellat qui corporis accusantium esse recusandae
+                        blanditiis
+                        expedita quisquam aliquam cum. Consequuntur illo quibusdam similique voluptatum sint asperiores,
+                        nobis
+                        repellendus ipsam, ex veritatis at?
+                    </p>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia magnam iusto optio in error,
+                        temporibus
+                        amet ut cupiditate eius asperiores eum, nihil iure facere? Quasi id libero error quae nihil
+                        quis, eaque
+                        aperiam quam asperiores fuga est iste ipsa pariatur nemo numquam exercitationem facilis esse?
+                    </p>
+                </section>
+                <h2 class="header">Lorem, ipsum.</h2>
+                <section class="news-text-block">
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab vitae temporibus quod officiis
+                        perspiciatis
+                        quos accusamus nihil voluptatum nobis repellendus! Corrupti, tempora? Deleniti accusamus
+                        molestias vitae
+                        iure similique possimus id consequuntur impedit voluptate laboriosam. Doloribus, eum pariatur
+                        doloremque
+                        dolorum provident quam. Iure ea consectetur accusamus earum, provident magnam reiciendis quod
+                        laudantium
+                        asperiores odio pariatur molestias aut repellat qui corporis accusantium esse recusandae
+                        blanditiis
+                        expedita quisquam aliquam cum. Consequuntur illo quibusdam similique voluptatum sint asperiores,
+                        nobis
+                        repellendus ipsam, ex veritatis at?
+                    </p>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia magnam iusto optio in error,
+                        temporibus
+                        amet ut cupiditate eius asperiores eum, nihil iure facere? Quasi id libero error quae nihil
+                        quis, eaque
+                        aperiam quam asperiores fuga est iste ipsa pariatur nemo numquam exercitationem facilis esse?
+                    </p>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab vitae temporibus quod officiis
+                        perspiciatis
+                        quos accusamus nihil voluptatum nobis repellendus! Corrupti, tempora? Deleniti accusamus
+                        molestias vitae
+                        iure similique possimus id consequuntur impedit voluptate laboriosam. Doloribus, eum pariatur
+                        doloremque
+                        dolorum provident quam. Iure ea consectetur accusamus earum, provident magnam reiciendis quod
+                        laudantium
+                        asperiores odio pariatur molestias aut repellat qui corporis accusantium esse recusandae
+                        blanditiis
+                        expedita quisquam aliquam cum. Consequuntur illo quibusdam similique voluptatum sint asperiores,
+                        nobis
+                        repellendus ipsam, ex veritatis at?
+                    </p>
+                </section>
+                <section class="images">
+                    <img src="/static/images/new-news/hero-1.jpg" alt="фото" loading="lazy" aria-hidden="true">
+                    <div class="bottom-information">
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+                        <div class="author">
+                            <img src="/static/images/author2.png" alt="фото" loading="lazy">
+                            <div class="author-right-information">
+                                <p>Петрова Анастасия</p>
+                                <span>Фотограф</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="news-text-block">
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab vitae temporibus quod officiis
+                        perspiciatis
+                        quos accusamus nihil voluptatum nobis repellendus! Corrupti, tempora? Deleniti accusamus
+                        molestias vitae
+                        iure similique possimus id consequuntur impedit voluptate laboriosam. Doloribus, eum pariatur
+                        doloremque
+                        dolorum provident quam. Iure ea consectetur accusamus earum, provident magnam reiciendis quod
+                        laudantium
+                        asperiores odio pariatur molestias aut repellat qui corporis accusantium esse recusandae
+                        blanditiis
+                        expedita quisquam aliquam cum. Consequuntur illo quibusdam similique voluptatum sint asperiores,
+                        nobis
+                        repellendus ipsam, ex veritatis at?
+                    </p>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia magnam iusto optio in error,
+                        temporibus
+                        amet ut cupiditate eius asperiores eum, nihil iure facere? Quasi id libero error quae nihil
+                        quis, eaque
+                        aperiam quam asperiores fuga est iste ipsa pariatur nemo numquam exercitationem facilis esse?
+                    </p>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab vitae temporibus quod officiis
+                        perspiciatis
+                        quos accusamus nihil voluptatum nobis repellendus! Corrupti, tempora? Deleniti accusamus
+                        molestias vitae
+                        iure similique possimus id consequuntur impedit voluptate laboriosam. Doloribus, eum pariatur
+                        doloremque
+                        dolorum provident quam. Iure ea consectetur accusamus earum, provident magnam reiciendis quod
+                        laudantium
+                        asperiores odio pariatur molestias aut repellat qui corporis accusantium esse recusandae
+                        blanditiis
+                        expedita quisquam aliquam cum. Consequuntur illo quibusdam similique voluptatum sint asperiores,
+                        nobis
+                        repellendus ipsam, ex veritatis at?
+                    </p>
+                </section>
+                <section class="quote">
+                    <h2>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus perspiciatis doloremque
+                        aspernatur! In odit totam recusandae dolor velit, libero natus.
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, possimus.
+                        Lorem ipsum dolor sit amet, consectetur adipisicing.
+                    </h2>
+                    <div class="author">
+                        <img src="/static/images/author2.png" alt="фото" loading="lazy">
+                        <p>Петрова Анастасия</p>
+                        <span>Путешественник</span>
+                    </div>
+                </section>
+                <section class="news-text-block">
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab vitae temporibus quod officiis
+                        perspiciatis
+                        quos accusamus nihil voluptatum nobis repellendus! Corrupti, tempora? Deleniti accusamus
+                        molestias vitae
+                        iure similique possimus id consequuntur impedit voluptate laboriosam. Doloribus, eum pariatur
+                        doloremque
+                        dolorum provident quam. Iure ea consectetur accusamus earum, provident magnam reiciendis quod
+                        laudantium
+                        asperiores odio pariatur molestias aut repellat qui corporis accusantium esse recusandae
+                        blanditiis
+                        expedita quisquam aliquam cum. Consequuntur illo quibusdam similique voluptatum sint asperiores,
+                        nobis
+                        repellendus ipsam, ex veritatis at?
+                    </p>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia magnam iusto optio in error,
+                        temporibus
+                        amet ut cupiditate eius asperiores eum, nihil iure facere? Quasi id libero error quae nihil
+                        quis, eaque
+                        aperiam quam asperiores fuga est iste ipsa pariatur nemo numquam exercitationem facilis esse?
+                    </p>
+                </section>
+                <section class="tags">
+                    <span>Путешествия</span>
+                    <span>Природа</span>
+                    <span>Мир</span>
+                    <span>Наука</span>
+                </section>
+                <section class="support-author">
+                    <h2>Поддержите автора</h2>
+                    <div class="types-of-support">
+                        <div class="type-of-support" onclick="location.href='#'">
+                            <i class="fa fa-heart" aria-hidden="true"></i>
+                            <p>Лайк</p>
+                            <span>42</span>
+                        </div>
+                        <div class="type-of-support" onclick="location.href='#'">
+                            <i class="fa fa-vk" aria-hidden="true"></i>
+                            <p>Поделиться</p>
+                            <span>42</span>
+                        </div>
+                        <div class="type-of-support" onclick="location.href='#'">
+                            <i class="fa fa-twitter" aria-hidden="true"></i>
+                            <p>Поделиться</p>
+                            <span>42</span>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </section>
+        <section class="news">
+            <article class="news-card" onclick="location.href='#'">
+                <img src="/static/images/new-news/hero-1.jpg" alt="Фото" loading="lazy" aria-hidden="true">
+                <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
+                <div class="statistic">
+                    <div class="views">
+                        <i class="fas fa-eye" aria-hidden="true"></i>
+                        <span>1525</span>
+                    </div>
+                    <div class="comments">
+                        <i class="fa fa-comment" aria-hidden="true"></i>
+                        <span>82</span>
+                    </div>
+                </div>
+            </article>
+            <article class="news-card" onclick="location.href='#'">
+                <img src="/static/images/new-news/hero-1.jpg" alt="Фото" loading="lazy" aria-hidden="true">
+                <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
+                <div class="statistic">
+                    <div class="views">
+                        <i class="fas fa-eye" aria-hidden="true"></i>
+                        <span>1525</span>
+                    </div>
+                    <div class="comments">
+                        <i class="fa fa-comment" aria-hidden="true"></i>
+                        <span>82</span>
+                    </div>
+                </div>
+            </article>
+            <article class="news-card" onclick="location.href='#'">
+                <img src="/static/images/new-news/hero-1.jpg" alt="Фото" loading="lazy" aria-hidden="true">
+                <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
+                <div class="statistic">
+                    <div class="views">
+                        <i class="fas fa-eye" aria-hidden="true"></i>
+                        <span>1525</span>
+                    </div>
+                    <div class="comments">
+                        <i class="fa fa-comment" aria-hidden="true"></i>
+                        <span>82</span>
+                    </div>
+                </div>
+            </article>
+            <article class="news-card" onclick="location.href='#'">
+                <img src="/static/images/new-news/art-3.jpg" alt="Фото" loading="lazy" aria-hidden="true">
+                <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
+                <div class="statistic">
+                    <div class="views">
+                        <i class="fas fa-eye" aria-hidden="true"></i>
+                        <span>1525</span>
+                    </div>
+                    <div class="comments">
+                        <i class="fa fa-comment" aria-hidden="true"></i>
+                        <span>82</span>
+                    </div>
+                </div>
+            </article>
+        </section>
+        <section class="comments">
+            <div class="content">
+                <div class="top">
+                    <div class="left">
+                        <h2>Комментарии</h2>
+                        <span>19</span>
+                    </div>
+                    <a href="#comment-input">
+                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                        Комментировать
+                    </a>
+                </div>
+                <section class="all-comments">
+                    <article class="comment">
+                        <img src="/static/images/author2.png" alt="фото" loading="lazy" aria-hidden="true">
+                        <div class="comment-text">
+                            <div class="top">
+                                <span>Петрова Анастасия</span>
+                                <time datetime="2024-12-12">Дек 12, 12:30</time>
+                            </div>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore eaque vel animi incidunt
+                                laudantium, hic qui ducimus voluptas inventore pariatur! Quibusdam pariatur nam minima
+                                necessitatibus.
+                            </p>
+                            <div class="bottom">
+                                <div class="reply">
+                                    <i class="fa fa-comment" aria-hidden="true"></i>
+                                    <span>Ответить</span>
+                                </div>
+                                <div class="likes">
+                                    <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                                    <span>&nbsp;+3&nbsp;</span>
+                                    <i class="fa fa-thumbs-down" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="comment" data-level="1">
+                        <img src="/static/images/author2.png" alt="фото" loading="lazy" aria-hidden="true">
+                        <div class="comment-text">
+                            <div class="top">
+                                <span>Петрова Анастасия</span>
+                                <time datetime="2024-12-12">Дек 12, 12:30</time>
+                            </div>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore eaque vel animi incidunt
+                                laudantium, hic qui ducimus voluptas inventore pariatur! Quibusdam pariatur nam minima
+                                necessitatibus.
+                            </p>
+                            <div class="bottom">
+                                <div class="reply">
+                                    <i class="fa fa-comment" aria-hidden="true"></i>
+                                    <span>Ответить</span>
+                                </div>
+                                <div class="likes">
+                                    <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                                    <span>&nbsp;+3&nbsp;</span>
+                                    <i class="fa fa-thumbs-down" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="comment" data-level="2">
+                        <img src="/static/images/author2.png" alt="фото" loading="lazy" aria-hidden="true">
+                        <div class="comment-text">
+                            <div class="top">
+                                <span>Петрова Анастасия</span>
+                                <time datetime="2024-12-12">Дек 12, 12:30</time>
+                            </div>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore eaque vel animi incidunt
+                                laudantium, hic qui ducimus voluptas inventore pariatur! Quibusdam pariatur nam minima
+                                necessitatibus.
+                            </p>
+                            <div class="bottom">
+                                <div class="reply">
+                                    <i class="fa fa-comment" aria-hidden="true"></i>
+                                    <span>Ответить</span>
+                                </div>
+                                <div class="likes">
+                                    <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                                    <span>&nbsp;+3&nbsp;</span>
+                                    <i class="fa fa-thumbs-down" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="comment">
+                        <img src="/static/images/author2.png" alt="фото" loading="lazy" aria-hidden="true">
+                        <div class="comment-text">
+                            <div class="top">
+                                <span>Петрова Анастасия</span>
+                                <time datetime="2024-12-12">Дек 12, 12:30</time>
+                            </div>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore eaque vel animi incidunt
+                                laudantium, hic qui ducimus voluptas inventore pariatur! Quibusdam pariatur nam minima
+                                necessitatibus.
+                            </p>
+                            <div class="bottom">
+                                <div class="reply">
+                                    <i class="fa fa-comment" aria-hidden="true"></i>
+                                    <span>Ответить</span>
+                                </div>
+                                <div class="likes">
+                                    <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                                    <span>&nbsp;+3&nbsp;</span>
+                                    <i class="fa fa-thumbs-down" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    <script>
+                        function applyCommentIndentation() {
+                            const comments = document.querySelectorAll('.comment');
+
+                            comments.forEach(comment => {
+                                const level = parseInt(comment.dataset.level, 10);
+                                comment.style.paddingLeft = `${level * 3}em`;
+                            });
+                        }
+
+                        applyCommentIndentation();
+                    </script>
+                </section>
+                <button>
+                    <i class="fa fa-refresh" aria-hidden="true"></i>
+                    <span>&nbsp;Загрузить больше комментариев</span>
+                </button>
+                <section class="add-comment">
+                    <div class="content">
+                        <h2>Что вы об этом думаете?</h2>
+                        <div class="bottom">
+                            <img src="/static/images/author2.png" alt="фото" loading="lazy" aria-hidden="true">
+                            <form action="#">
+                                <div class="text">
+                                    <textarea name="comment-input" id="comment-input" aria-label="Введите текст комментария"></textarea>
+                                </div>
+                                <button>Отправить</button>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            <section class="footer-links">
+                <div class="links-block">
+                    <h3>Новости</h3>
+                    <ul>
+                        <li><a href="">В стране</a></li>
+                        <li><a href="">В мире</a></li>
+                        <li><a href="">Политика</a></li>
+                    </ul>
+                </div>
+                <div class="links-block">
+                    <h3>Искусство</h3>
+                    <ul>
+                        <li><a href="">Искусство и дизайн</a></li>
+                        <li><a href="">Фильмы</a></li>
+                        <li><a href="">Люди</a></li>
+                        <li><a href="">Театр</a></li>
+                    </ul>
+                </div>
+                <div class="links-block">
+                    <h3>Путешествия</h3>
+                    <ul>
+                        <li><a href="">Города</a></li>
+                        <li><a href="">Полеты</a></li>
+                        <li><a href="">Деловые поездки</a></li>
+                    </ul>
+                </div>
+                <div class="links-block">
+                    <h3>Спорт</h3>
+                    <ul>
+                        <li><a href="">Олимпийский игры</a></li>
+                        <li><a href="">Автоспорт</a></li>
+                        <li><a href="">Волейбол</a></li>
+                        <li><a href="">Футбол</a></li>
+                        <li><a href="">Фигурное катание</a></li>
+                        <li><a href="">Велоспорт</a></li>
+                    </ul>
+                </div>
+                <div class="links-block">
+                    <h3>Технологии</h3>
+                    <ul>
+                        <li><a href="">Обзоры</a></li>
+                        <li><a href="">Новинки</a></li>
+                        <li><a href="">Техника</a></li>
+                    </ul>
+                </div>
+                <div class="links-block">
+                    <h3>Деньги</h3>
+                    <ul>
+                        <li><a href="">Рынки</a></li>
+                        <li><a href="">Бизнес</a></li>
+                        <li><a href="">Личные финансы</a></li>
+                        <li><a href="">Карьера</a></li>
+                    </ul>
+                </div>
+            </section>
+            <section class="contacts">
+                <ul class="left-information">
+                    <li><a href="#" aria-label="иконка компании (переход на главную)">
+                        <img src="/static/images/bronse_horsmen.ico" alt="фото" loading="lazy" aria-hidden="true">
+                    </a></li>
+                    <li>Связаться с нами</li>
+                </ul>
+                <ul class="right-information">
+                    <li><a href="#"><img src="/static/images/logos/telegram.png" alt="логотип телеграмм" loading="lazy"></a></li>
+                    <li><a href="#"><img src="/static/images/logos/vk.png" alt="логотип вк" loading="lazy"></a></li>
+                </ul>
+            </section>
+        </div>
+    </footer>
+</body>
+
+</html>

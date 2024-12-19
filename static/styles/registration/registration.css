@@ -1,0 +1,34 @@
+body {
+    height: initial;
+}
+
+.registration #patronymic {
+    border-color: var(--color-border-gray);
+}
+
+.registration input[type="file"] {
+    font-size: var(--fz-small);
+}
+
+.red-star {
+    color: var(--color-error);
+}
+
+#comment-for-password {
+    font-size: var(--fz-small);
+    color: var(--color-dark-gray);
+}
+
+.registration .user-photo {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+.registration .user-photo img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    background-color: var(--color-dark-gray);
+}

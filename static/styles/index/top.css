@@ -1,0 +1,203 @@
+@keyframes new-image {
+    0%,100% {
+        background-image: url("../../images/new-news/hero-1.jpg");
+    }
+    20% {
+        background-image: url('../../images/new-news/background1.webp');
+    }
+    40% {
+        background-image: url('../../images/new-news/backgound2.jpg');
+    }
+    60% {
+        background-image: url('../../images/new-news/news2.jpg');
+    }
+    80% {
+        background-image: url('../../images/new-news/backgound3.jpg')
+    }
+}
+
+.hot {
+    background-color: var(--color-light-black);
+}
+
+.hot > .container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1em;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 3em 0;
+}
+
+.hot > .container > * {
+    background-color: var(--color-white);
+    border-radius: 0.5em;
+}
+
+.hot article {
+    cursor: pointer;
+}
+
+.block:nth-child(1) {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1em;
+    padding: 1em;
+    grid-row: span 2; 
+    grid-column: span 2;
+    background-image: url("../../images/new-news/hero-1.jpg");
+    background-size: cover;
+    background-position: 50% 50%;
+    animation: new-image 30s infinite;
+    animation-timing-function: steps(1);
+}
+
+.block:nth-child(1) > .hot-label {
+    align-self: flex-start;
+    display: inline-block;
+    width: max-content;
+    background-color: brown;
+    font-size: var(--fz-tiny);
+    color: var(--color-white);
+    padding: 4px 12px;
+    border-radius: 4px;
+}
+
+.block:nth-child(1) > .top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.block:nth-child(1) > .top > span {
+    text-align: center;
+    font-size: var(--fz-small);
+    color: var(--color-white);
+}
+
+.block:nth-child(1) > .top > p {
+    text-align: center;
+    font-size: var(--fz-tiny);
+    color: var(--color-white);
+}
+
+.block:nth-child(1) > .top > img {
+    width: max-content;
+}
+
+.block:nth-child(1) > h2 {
+    width: 70%;
+    font-size: 32px;
+    color: var(--color-white);
+}
+
+.block:nth-child(1) > a {
+    font-size: var(--fz-small);
+    background-color: var(--color-dark-blue);
+    padding: 12px 16px;
+    margin-bottom: 1em;
+    border-radius: 8px;
+}
+
+.block:nth-child(2) {
+    grid-column: span 2;
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--color-light-blue);
+    padding: 1em;
+}
+
+.block:nth-child(2) > .left-information {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.block:nth-child(2) > .left-information::after {
+    position: absolute;
+    content: " ";
+    top: 1em;
+    left: calc(100% + 1em);
+    width: 10em;
+    height: 10em;
+    border-radius: 50%;
+    background-color: rgb(154, 254, 241);
+}
+
+.block:nth-child(2) > .left-information span {
+    font-size: var(--fz-tiny);
+    text-transform: uppercase;
+    color:rgb(10, 92, 76);
+}
+
+.block:nth-child(2) > .left-information h2 {
+    font-size: var(--fz-h2);
+    color: var(--color-light-black);
+}
+
+.block:nth-child(2) > .left-information p {
+    font-size: var(--fz-small);
+    color: var(--color-light-black);
+}
+
+.block:nth-child(2) > .left-information a {
+    position: relative;
+    display: inline-block;
+    width: max-content;
+    font-size: var(--fz-small);
+    text-align: center;
+    background-color: var(--color-dark-blue);
+    padding: 8px 12px;
+    padding-right: 28px;
+    border-radius: 8px;
+    transition: transform .5s;
+}
+
+.block:nth-child(2) .left-information a:hover {
+    transform: translateY(-4px);
+}
+
+.block:nth-child(2) .left-information a::after {
+    position: absolute;
+    content: "→";
+    right: 10%;
+    transition: right .5s;
+}
+
+.block:nth-child(2) .left-information a:hover::after {
+    position: absolute;
+    content: "→";
+    right: 5%;
+}
+
+.block:nth-child(2) img {
+    position: relative;
+    width: 30%;
+    height: auto;
+}
+
+.block:nth-child(2) ~ .block {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    padding: 1em;
+}
+
+.block:nth-child(2) ~ .block > h2 {
+    font-size: var(--fz-h2);
+    color: var(--color-light-black)
+}
+
+.block:nth-child(2) ~ .block > p {
+    font-size: var(--fz-small);
+    color: var(--color-border-gray);
+}
+
+.block:nth-child(2) ~ .block > time {
+    font-size: var(--fz-tiny);
+    color: var(--color-border-gray);
+}

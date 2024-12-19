@@ -1,0 +1,24 @@
+.news-text > .container {
+    width: calc(var(--max-width) - 10em);
+    margin: 5em auto;
+}
+
+.news-text {
+    position: relative;
+}
+
+.news-text-block {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    width: 60%;
+    font-size: var(--fz-large);
+    line-height: 1.75;
+    color: var(--color-border-gray);
+}
+
+.header {
+    --fz-h2: 25px;
+    font-size: var(--fz-h2);
+    margin: 1.5em 0;
+}

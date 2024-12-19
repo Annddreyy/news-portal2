@@ -1,0 +1,80 @@
+.images {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin: 2em 0;
+}
+
+.images::before, .images::after {
+    position: absolute;
+    content: "<";
+    top: calc(50% - 2em);
+    left: 1em;
+    width: 60px;
+    height: 60px;
+    font-size: 32px;
+    padding: 12px 20px;
+    border-radius: 50%;
+    box-sizing: border-box;
+    background-color: var(--color-light-gray);
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.images::after {
+    content: ">";
+    left: inherit;
+    right: 1em;
+}
+
+.images > .bottom-information {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5em 1em;
+    border: 1px solid var(--color-light-gray);
+    border-top: none;
+}
+
+.images > .bottom-information > p {
+    font-size: var(--fz-small);
+    color: var(--color-border-gray);
+}
+
+.images > .bottom-information > .author {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+.images > .bottom-information > .author::before {
+    position: absolute;
+    content: " ";
+    top: -0.5em;
+    bottom: -0.5em;
+    left: -1em;
+    border-left: 1px solid var(--color-light-gray);
+}
+
+.images > .bottom-information > .author img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.images > .bottom-information .author-right-information {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+
+.images > .bottom-information .author-right-information p {
+    font-weight: lighter;
+    font-size: var(--fz-small);
+}
+
+.images > .bottom-information .author-right-information span {
+    font-size: var(--fz-tiny);
+}

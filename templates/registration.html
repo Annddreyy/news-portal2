@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta property="og:title" content="Российский инсайдер" />
+    <meta property="og:description" content="Сайт о самых актуальных новостях России и мира" />
+    <meta property="og:url" content="https://127.0.0.1:5000/" />
+    <meta property="og:image" content="https://github.com/Annddreyy/news-portal/blob/main/static/images/bronse_horsmen.png?raw=true" />
+    <meta property="og:image:alt" content="Медный всадник" />
+
+    <meta name="twitter:title" content="Российский инсайдер" />
+    <meta name="twitter:description" content="Сайт о самых актуальных новостях России и мира" />
+    <meta name="twitter:url" content="https://127.0.0.1:5000/" />
+    <meta name="twitter:image:src" content="https://github.com/Annddreyy/news-portal/blob/main/static/images/bronse_horsmen.png?raw=true" />
+    <meta name="twitter:image:alt" content="Медный всадник" />
+
+    <title>Регистрация</title>
+    <link rel="shortcut icon" href="static/images/bronse_horsmen.ico" type="image/x-icon">
+    <meta name="description" content="Регистрация пользователей">
+
+    <link rel="stylesheet" href="static/styles/style.css">
+    <link rel="stylesheet" href="static/styles/form.css">
+    <link rel="stylesheet" href="static/styles/registration/registration.css">
+</head>
+<body>
+    <div class="circles">
+        <svg height="100" width="100" class="circle">
+            <circle r="45" cx="50" cy="50" fill="rgba(73, 99, 193, 0.2)" />
+        </svg>
+        <svg height="100" width="100" class="circle">
+            <circle r="45" cx="50" cy="50" fill="rgba(73, 99, 193, 0.2)" />
+        </svg>
+        <svg height="100" width="100" class="circle">
+            <circle r="45" cx="50" cy="50" fill="rgba(73, 99, 193, 0.2)" />
+        </svg>
+        <svg height="100" width="100" class="circle">
+            <circle r="45" cx="50" cy="50" fill="rgba(73, 99, 193, 0.2)" />
+        </svg>
+        <svg height="100" width="100" class="circle">
+            <circle r="45" cx="50" cy="50" fill="rgba(73, 99, 193, 0.2)" />
+        </svg>
+    </div>
+    <section class="form-section registration">
+        <div class="content">
+            <h1>Регистрация</h1>
+            {% if error_message: %}
+                <p>{{ error_message }}</p>
+            {% endif %}
+            <form action="/registration" method="post" enctype="multipart/form-data">
+                <label for="surname">Фамилия:</label>
+                <div>
+                    <input type="text" name="surname" id="surname" required>
+                    <span class="red-star">*</span>
+                </div>
+                <label for="name">Имя:</label>
+                <div>
+                    <input type="text" name="name" id="name" required>
+                    <span class="red-star">*</span>
+                </div>
+                <label for="patronymic">Отчество (при наличии):</label>
+                <input type="text" name="patronymic" id="patronymic">
+                <label for="login">Логин:</label>
+                <div>
+                    <input type="text" name="login" id="login" required>
+                    <span class="red-star">*</span>
+                </div>
+                <label for="password">Пароль:</label>
+                <div>
+                    <input type="password" name="password" id="password" 
+                    minlength="8" pattern="^.*(?=.{8,})(?=.*[a-zA-Z])(?=.*\d)(?=.*[!#$%&?]).*"
+                    autocomplete="current-password" required aria-describedby="comment-for-password">
+                    <span class="red-star">*</span>
+                </div>
+                <span id="comment-for-password">
+                    Пароль должен состоять минимум из 8 символов, 
+                    содержат минимум одну заглавную букву, одну строчную букву, одну цифру и один специальный 
+                    символ из набора "!#$%&?"
+                </span>
+                <label for="photo"></label>
+                <div class="user-photo">
+                    <img id="user-photo-preview" width="60" height="60" aria-hidden="true">
+                    <input type="file" name="photo" id="photo" accept="image/*" required aria-label="Загрузить фото профиля">
+                    <span class="red-star">*</span>
+                    <script>
+                        const imageFile = document.getElementById('photo');
+                        const uploadedImage = document.getElementById('user-photo-preview');
+
+                        imageFile.addEventListener('change', function(event) {
+                            const file = event.target.files[0];
+
+                            const reader = new FileReader();
+                            reader.onload = function(e) {
+                                uploadedImage.src = e.target.result;
+                            }
+                            reader.readAsDataURL(file);
+                        });
+                    </script>
+                </div>
+                <input type="submit" value="Зарегестрироваться&nbsp;→">
+            </form>
+            <footer class="bottom">
+                <span>Уже есть аккаунт?</span>
+                <button onclick="location.href='/authorization'">Войти</button>
+            </footer>
+        </div>
+    </section>
+</body>
+</html>

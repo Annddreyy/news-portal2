@@ -1,0 +1,190 @@
+.notes {
+    background-color: var(--color-light-gray);
+}
+
+.notes > .container {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 2em;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 3em 0;
+}
+
+.all-notes {
+    background-color: var(--color-white);
+    border-radius: 1em;
+}
+
+.note {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    align-items: center;
+    gap: 1em;
+    height: max-content;
+}
+
+.note:not(:last-child)::after {
+    position: absolute;
+    content: " ";
+    bottom: 0;
+    left: 1em;
+    right: 1em;
+    border-bottom: 1px solid var(--color-light-gray);
+}
+
+.note .right-information {
+    padding: 1em;
+}
+
+.note img {
+    width: 100%;
+    height: 150px;
+    padding: 1em;
+    object-fit: cover;
+}
+
+.note .bottom :is(time, span, i) {
+    color: var(--color-border-gray);
+}
+
+.note .top > span {
+    font-size: var(--fz-tiny);
+    text-transform: uppercase;
+    color: rgb(0, 38, 81);
+}
+
+.note .top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.note i {
+    font-size: var(--fz-large);
+    color: var(--color-border-gray);
+}
+
+.note i[data-in-bookmarks] {
+    color: red;
+}
+
+.note h2 {
+    font-size: var(--fz-h2);
+    color: var(--color-light-black);
+    padding: 0.5em 0;
+}
+
+.note p {
+    font-size: var(--fz-small);
+    padding-bottom: 1em;
+}
+
+.note .bottom {
+    display: flex;
+    gap: 1em;
+}
+
+.note .bottom * {
+    font-size: var(--fz-small);
+}
+
+.recommended-notes {
+    height: max-content;
+    background-color: var(--color-white);
+    padding: 1em;
+    border-radius: 0.5em;
+    counter-reset: count-of-recommended-notes;
+}
+
+.recommended-note {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1em;
+    padding: 1em 0.5em;
+    z-index: 1;
+}
+
+.recommended-note::before {
+    position: absolute;
+    counter-increment: count-of-recommended-notes;
+    content: counter(count-of-recommended-notes);
+    top: 0;
+    right: 10%;
+    font-size: 96px;
+    color: var(--color-light-gray);
+    font-style: italic;
+    opacity: 0.7;
+    z-index: -1;
+}
+
+.recommended-notes img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+}
+
+.recommended-notes h2 {
+    position: relative;
+    font-size: var(--fz-medium);
+    text-transform: uppercase;
+    padding: 0.5em 1em 1.5em 1em;
+    text-align: center;
+}
+
+.recommended-notes h2::after {
+    position: absolute;
+    content: " ";
+    bottom: 0%;
+    left: -1em;
+    right: -1em;
+    border-bottom: 1px solid var(--color-light-gray);
+}
+
+.recommended-note .right-information {
+    display: flex;
+    flex-direction: column;
+    align-items: space-between;
+}
+
+.recommended-note .right-information span {
+    color: var(--color-light-black);
+    font-size: var(--fz-medium);
+    line-height: 1.25;
+}
+
+.recommended-note .right-information time {
+    color: var(--color-border-gray);
+    font-size: var(--fz-tiny);
+    padding: 0.5em 0;
+}
+
+.recommended-note:not(:last-of-type)::after {
+    position: absolute;
+    content: " ";
+    bottom: 0;
+    left: 0.5em;
+    right: 0.5em;
+    border-bottom: 1px solid var(--color-light-gray);
+}
+
+.recommended-notes footer a{
+    position: relative;
+    display: block;
+    text-align: center;
+    color: var(--color-light-black);
+    font-weight: bolder;
+    padding-top: 1em;
+}
+
+.recommended-notes footer a::before{
+    position: absolute;
+    content: " ";
+    top: 0;
+    left: -1em;
+    right: -1em;
+    border-top: 1px solid var(--color-light-gray);
+}

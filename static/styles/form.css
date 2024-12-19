@@ -1,0 +1,137 @@
+@keyframes circle-transform {
+    0%,100% {
+        transform: translate(0, 0);
+    }
+    50% {
+        transform: translate(1em, 2em);
+    }
+}
+
+body {
+    height: 100vh;
+    background-image: linear-gradient(120deg, black, var(--color-medium-blue));
+}
+
+.circle {
+    position: absolute;
+    animation: circle-transform 5s linear infinite;
+}
+
+.circle:nth-child(1) {
+    top: 30%;
+    left: 25%;
+}
+
+.circle:nth-child(2) {
+    top: 20%;
+    left: 75%;
+}
+
+.circle:nth-child(3) {
+    top: 70%;
+    left: 15%;
+}
+
+.circle:nth-child(4) {
+    top: 80%;
+    left: 85%;
+}
+
+.circle:nth-child(5) {
+    top: 10%;
+    left: 7%l
+}
+
+.form-section {
+    position: relative;
+    width: 30%;
+    margin: 2em auto;
+    padding: 2em 4em;
+    border: 1px solid var(--light-gray);
+    border-radius: 8px;
+    background-color: var(--color-black);
+}
+
+.form-section * {
+    font-size: var(--fz-medium);
+    color: var(--color-white);
+}
+
+.form-section > .content {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+}
+
+.form-section > .content > h1 {
+    font-size: var(--fz-h2);
+}
+
+.form-section > .content > p {
+    padding: 16px;
+    background-color: var(--color-error);
+}
+
+.form-section form {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.form-section input {
+    padding: 12px 16px;
+    border: 2px solid var(--color-border-gray);
+    border-radius: 4px;
+    background-color: var(--color-light-black);
+}
+
+.form-section input:invalid {
+    border-color: var(--color-error);
+}
+
+.form-section :is(input[type="text"], input[type="password"]) {
+    background-size: 21px;
+    background-repeat: no-repeat;
+    background-position: 10px;
+    padding-left: 40px;
+}
+
+.form-section input[type="text"] {
+    background-image: url('../images/icons8-человек-30.png');
+}
+
+.form-section input[type="password"] {
+    background-image: url('../images/icons8-пароли-30.png');
+}
+
+.form-section input[type="submit"] {
+    width: 50%;
+    background-color: var(--color-dark-green);
+    font-size: var(--fz-small);
+    border: none;
+}
+
+.form-section form > div {
+    display: flex;
+    gap: 1em;
+}
+
+.form-section form > div > input {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.form-section .bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.form-section button {
+    display: inline-block;
+    padding: 1em 5em;
+    border: none;
+    border-radius: 1em;
+    background-color: var(--color-light-black);
+    font-size: var(--fz-small);
+}

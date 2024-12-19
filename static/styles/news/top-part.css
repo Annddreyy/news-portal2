@@ -1,0 +1,95 @@
+.top-part {
+    background-image: 
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url("../../images/new-news/hero-1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.top-part > .container {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    max-width: calc(var(--max-width) - 10em);
+    margin: 0 auto;
+    padding: 3em 0 4em 0;
+}
+
+.top-information {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2em;
+}
+
+.top-information > .right-information {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+.top-information > .right-information * {
+    color: var(--color-white);
+}
+
+.top-information > .right-information button {
+    background-color: transparent;
+    border: none;
+}
+
+.top-information > span {
+    font-size: var(--fz-small);
+    text-transform: uppercase;
+    color: rgb(51, 141, 245);
+}
+
+.top-part h1 {
+    position: relative;
+    width: 75%;
+    line-height: 1.25;
+    color: var(--color-white);
+    --fz-h1: 55px;
+    font-size: var(--fz-h1);
+}
+
+.top-part h1 > i {
+    position: absolute;
+    left: -2em;
+    top: 12px;
+    color: var(--color-dark-gray);
+    --fz-h1: 36px;
+    font-size: var(--fz-h1);
+}
+
+.top-part p {
+    color: var(--color-white);
+}
+
+.top-part  .bottom-information {
+    display: flex;
+    align-items: center;
+    gap: 2em;
+    margin-top: 3em;
+}
+
+.top-part .indicators {
+    display: flex;
+    gap: 1em;
+}
+
+.top-part .indicators * {
+    font-size: var(--fz-small);
+    color: var(--color-light-gray);
+}
+
+.top-part .shares {
+    display: flex;
+    gap: 1em;
+    border: 1px solid var(--color-dark-gray);
+    padding: 8px 3em;
+    border-radius: 2em;
+}
+
+.top-part .shares * {
+    color: var(--color-white);
+}

@@ -1,0 +1,162 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Lato, sans-serif;
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    color: var(--color-white);
+    text-decoration: none;
+}
+
+@font-face {
+    font-family: Lato;
+    src: url(/static/fonts/Lato-Regular.ttf) format("ttf");
+    font-weight: 400;
+    font-display: swap;
+    font-style: normal
+}
+
+@font-face {
+    font-family: Lato;
+    src: url(/static/fonts/Lato-HeavyItalic.ttf) format("ttf");
+    font-weight: 900;
+    font-display: swap;
+    font-style: normal
+}
+
+@font-face {
+    font-family: RobotoSlab;
+    src: url(/static/fonts/Roboto_Slab/static/RobotoSlab-Bold.ttf) format("ttf");
+    font-weight: 900;
+    font-display: swap;
+    font-style: normal
+}
+
+
+@property --color-light-gray {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: lightgray;
+}
+
+@property --color-dark-gray {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: darkgray;
+}
+
+@property --color-light-black {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: #30363d;
+}
+
+@property --color-black {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: #262d33;
+}
+
+@property --color-border-gray {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: rgb(95, 95, 95);
+}
+
+@property --color-white {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: white;
+}
+
+@property --color-dark-green {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: rgb(0, 77, 0);
+}
+
+@property --color-light-blue {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: lightblue;
+}
+
+@property --color-medium-blue {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: rgb(73, 99, 193);
+}
+
+@property --color-dark-blue {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: rgb(4, 64, 147);
+}
+
+@property --color-error {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: rgb(255, 73, 73);
+}
+
+@property --fz-tiny {
+    syntax: "<length>";
+    inherits: true;
+    initial-value: 12px;
+}
+
+@property --fz-small {
+    syntax: "<length>";
+    inherits: true;
+    initial-value: 14px;
+}
+
+@property --fz-medium {
+    syntax: "<length>";
+    inherits: true;
+    initial-value: 16px;
+}
+
+@property --fz-large {
+    syntax: "<length>";
+    inherits: true;
+    initial-value: 18px;
+}
+
+@property --fz-h2 {
+    syntax: "<length>";
+    inherits: true;
+    initial-value: 21px;
+}
+
+@property --fz-h1 {
+    syntax: "<length>";
+    inherits: true;
+    initial-value: 42px;
+}
+
+:root {
+    --color-dark-gray: darkgray;
+    --color-black: #262d33;
+    --color-white: white;
+    --color-light-black: #30363d;
+    --color-light-gray: lightgray;
+    --color-border-gray: rgb(85, 85, 85);
+    --color-dark-green: rgb(0, 77, 0);
+    --color-light-blue: lightblue;
+    --color-medium-blue: rgb(73, 99, 193);
+    --color-dark-blue: rgb(4, 64, 147);
+    --color-error: rgb(255, 73, 73);
+    --fz-tiny: 12px;
+    --fz-small: 14px;
+    --fz-medium: 16px;
+    --fz-large: 18px;
+    --fz-h2: 21px;
+    --fz-h1: 42px;
+    --max-width: 80em;
+}

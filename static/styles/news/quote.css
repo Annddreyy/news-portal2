@@ -1,0 +1,40 @@
+.quote {
+    position: relative;
+    display: flex;
+    gap: 2em;
+    margin: 2em 0;
+}
+
+.quote::before {
+    position: absolute;
+    content: "''";
+    top: -0.25em;
+    left: -0.175em;
+    font-size: 156px;
+    color: var(--color-light-blue);
+    opacity: 0.5;
+    z-index: -1;
+}
+
+.quote > h2 {
+    width: 70%;
+    --fz-h2: 25px;
+    font-size: var(--fz-h2);
+}
+
+.quote > .author {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+
+.quote > .author > span {
+    color: var(--color-border-gray);
+}
+
+.quote > .author > img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+}

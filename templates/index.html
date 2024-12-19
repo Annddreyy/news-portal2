@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta property="og:title" content="Российский инсайдер" />
+    <meta property="og:description" content="Сайт о самых актуальных новостях России и мира" />
+    <meta property="og:url" content="https://127.0.0.1:5000/" />
+    <meta property="og:image" content="https://github.com/Annddreyy/news-portal/blob/main/static/images/bronse_horsmen.png?raw=true" />
+    <meta property="og:image:alt" content="Медный всадник" />
+
+    <meta name="twitter:title" content="Российский инсайдер" />
+    <meta name="twitter:description" content="Сайт о самых актуальных новостях России и мира" />
+    <meta name="twitter:url" content="https://127.0.0.1:5000/" />
+    <meta name="twitter:image:src" content="https://github.com/Annddreyy/news-portal/blob/main/static/images/bronse_horsmen.png?raw=true" />
+    <meta name="twitter:image:alt" content="Медный всадник" />
+
+    <title>Российский Инсайдер</title>
+    <link rel="shortcut icon" href="static/images/bronse_horsmen.ico" type="image/x-icon">
+    <meta name="description" content="Главная страница">
+
+    <script src="https://kit.fontawesome.com/df4c96a155.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="static/styles/style.css">
+    <link rel="stylesheet" href="static/styles/header.css">
+    <link rel="stylesheet" href="static/styles/header-navigation.css">
+    <link rel="stylesheet" href="static/styles/footer.css">
+    <link rel="stylesheet" href="static/styles/index/top-section.css">
+    <link rel="stylesheet" href="static/styles/index/recommended-news.css">
+    <link rel="stylesheet" href="static/styles/index/popular-news.css">
+    <link rel="stylesheet" href="static/styles/index/main-news.css">
+    <link rel="stylesheet" href="static/styles/index/notes.css">
+    <link rel="stylesheet" href="static/styles/index/top.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <section class="header-top">
+                <div class="header-top-left">
+                    <button>&Congruent;</button>
+                    <span>Разделы</span>
+                    <form action="#" method="get">
+                        <i class="fas fa-search" aria-hidden="true"></i>
+                        <input type="search" name="search" id="search" placeholder="Поиск">
+                    </form>
+                </div>
+                <div class="header-top-right">
+                    {% if user_information: %}
+                        {% if user_information['photo']: %}
+                            <img src="https://github.com/Annddreyy/news-portal-images/blob/main/users/{{ user_information['photo'] }}?raw=true" alt="фотография">
+                        {% else: %}
+                            <i class="fas fa-user" aria-hidden="true"></i>
+                        {% endif %}
+                        <span>{{ user_information['surname'] }}&nbsp;{{ user_information['name'][0] }}.</span>
+                    {% else: %}
+                        <i class="fas fa-user" aria-hidden="true"></i>
+                        <button class="sign-in-button" onclick="location.href='/authorization'">Войти</button>
+                    {% endif %}
+                </div>
+            </section>
+            <section class="header-bottom">
+                <img src="static/images/bronse_horsmen.png" alt="Медный всадник" aria-hidden="true">
+                <span>Новости России и мира</span>
+                <h1>Российский Инсайдер</h1>
+                <time datetime="2024-12-12" id="now-date">Четверг, 12 декабря, 2024</time>
+                <span><i class="fas fa-sun" style="color: rgb(244, 189, 8);"></i>&nbsp;&nbsp;-10 <sup>o</sup>C</span>
+                <script>
+                    const now = new Date();
+
+                    const options = {
+                        weekday: 'long',
+                        day: 'numeric',
+                        month: 'long',
+                        year: 'numeric',
+                    };
+
+                    const formattedDate = now.toLocaleDateString('ru-RU', options);
+
+                    let date = document.getElementById('now-date');
+                    date.innerText = formattedDate;
+                </script>
+            </section>
+        </div>
+    </header>
+    <nav class="header-navigation">
+        <div class="container">
+            <ul>
+                <li><a href="#">Новости</a></li>
+                <li><a href="#">Наука</a></li>
+                <li><a href="#">Жизнь</a></li>
+                <li><a href="#">Путешествия</a></li>
+                <li><a href="#">Экономика</a></li>
+                <li><a href="#">Искусство</a></li>
+                <li><a href="#">Спорт</a></li>
+                <li><a href="#">Люди</a></li>
+                <li><a href="#">Здоровье</a></li>
+                <li><a href="#">Образование</a></li>
+            </ul>
+        </div>
+    </nav>
+    <main>
+        <section class="top-section">
+            <div class="container">
+                <section class="new-news">
+                    <ul>
+                        <li>
+                            <a href="#">
+                                <article class="new-news-item">
+                                    <h2>Ученые из Москвы сделали новое открытие в физике</h2>
+                                    <img src="static/images/new-news/news1.jpg" alt="Фото" aria-hidden="true" width="2" height="1">
+                                </article>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <article class="new-news-item">
+                                    <h2>Ученые из Москвы сделали новое открытие в физике</h2>
+                                    <img src="static/images/new-news/news1.jpg" alt="Фото" aria-hidden="true" width="2" height="1">
+                                </article>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <article class="new-news-item">
+                                    <h2>Ученые из Москвы сделали новое открытие в физике</h2>
+                                    <img src="static/images/new-news/news1.jpg" alt="Фото" aria-hidden="true" width="2" height="1">
+                                </article>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <article class="new-news-item">
+                                    <h2>Ученые из Москвы сделали новое открытие в физике</h2>
+                                    <img src="static/images/new-news/news1.jpg" alt="Фото" aria-hidden="true" width="2" height="1">
+                                </article>
+                            </a>
+                        </li>
+                    </ul>
+                </section>
+                <section class="recommended-news">
+                    <div class="news-preview">
+                        <img src="static/images/new-news/hero-1.jpg" alt="Фото" aria-hidden="true">
+                        <div class="author">
+                            <img src="static/images/author2.png" alt="Фото автора" aria-hidden="true">
+                            <div class="right-information">
+                                <p>Автор: Иванов Иван</p>
+                                <p>Путешественник</p>
+                            </div>
+                        </div>
+                        <div class="bottom-information">
+                            <h2>Lorem ipsum dolor sit amet consectetur adipisicing.</h2>
+                            <div class="bottom-news-preview">
+                                <a href="#" class="read-link">Подробнее</a>
+                                <a href="#">
+                                    <div class="video-link">
+                                        <div class="circle"></div>
+                                        <p>Название видео</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="recommended-news-list">
+                        <h2>Рекомендуется для вас</h2>
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <article class="one-recommended-news">
+                                        <span>Машины</span>
+                                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Recusandae, velit!
+                                        </p>
+                                    </article>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <article class="one-recommended-news">
+                                        <span>Машины</span>
+                                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Recusandae, velit!
+                                        </p>
+                                    </article>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <article class="one-recommended-news">
+                                        <span>Машины</span>
+                                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Recusandae, velit!
+                                        </p>
+                                    </article>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <article class="one-recommended-news">
+                                        <span>Машины</span>
+                                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Recusandae, velit!
+                                        </p>
+                                    </article>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <article class="one-recommended-news">
+                                        <span>Машины</span>
+                                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Recusandae, velit!
+                                        </p>
+                                    </article>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+        </section>
+        <section class="popular-news">
+            <div class="container">
+                <article class="popular-card" onclick="location.href='#'">
+                    <div class="popular-card-top">
+                        <div class="left-information">
+                            <span>Автомобили</span>
+                            <h2>Автоваз выпустил новую марку автомобиля</h2>
+                            <p>
+                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sint, debitis amet, quae
+                                aspernatur
+                                inventore nemo vero delectus voluptas dolorem, saepe repellat pariatur reiciendis
+                                accusamus unde.
+                            </p>
+                        </div>
+                        <img src="static/images/new-news/car.png" alt="Фото" loading="lazy" aria-hidden="true" width="300" height="300">
+                    </div>
+                    <footer class="popular-card-bottom">
+                        <img src="static/images/author.png" alt="Иванов Иван" loading="lazy" class="popular-card-author">
+                        <div class="popular-card-bottom-information">
+                            <span class="popular-card-bottom-information-author">Иванов Иван:</span>
+                            <p class="popular-card-bottom-information-text">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, molestiae.
+                            </p>
+                            <i class="fas fa-comment" aria-hidden="true"></i>
+                            <span class="comments-count">342</span>
+                        </div>
+                    </footer>
+                </article>
+                <article class="popular-card" onclick="location.href='#'">
+                    <span>Популярное</span>
+                    <footer class="popular-card-bottom">
+                        <span>Искусство и дизайн</span>
+                        <h2>Lorem ipsum dolor sit amet consectetur adipisicing.</h2>
+                        <div class="popular-card-bottom-information">
+                            <img src="static/images/author.png" alt="Иванов Иван" loading="lazy"
+                                class="popular-card-author" width="45" height="">
+                            <div class="popular-card-bottom-text">
+                                <span class="popular-card-bottom-information-author">Иванов Иван</span>
+                                <div class="indicators">
+                                    <time datetime="2024-12-14">Дек, 12</time>
+                                    <div class="comments" style="display: inline-block;">
+                                        <i class="fas fa-comment" aria-hidden="true"></i>
+                                        <span>46</span>
+                                    </div>
+                                    <div class="likes" style="display: inline-block;">
+                                        <i class="fas fa-heart" aria-hidden="true"></i>
+                                        <span>46</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </footer>
+                </article>
+                <article class="popular-card" onclick="location.href='#'">
+                    <h2>Цитаты</h2>
+                    <article class="quote">
+                        <h2>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</h2>
+                        <div class="quote-bottom">
+                            <img src="static/images/author.png" alt="Фото" loading="lazy">
+                            <div class="author">
+                                <span>Иванов Иван</span>
+                                <p>Путешественник</p>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="quote">
+                        <h2>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</h2>
+                        <div class="quote-bottom">
+                            <img src="static/images/author.png" alt="Фото" loading="lazy">
+                            <div class="author">
+                                <span>Иванов Иван</span>
+                                <p>Путешественник</p>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="quote">
+                        <h2>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</h2>
+                        <div class="quote-bottom">
+                            <img src="static/images/author.png" alt="Фото" loading="lazy">
+                            <div class="author">
+                                <span>Иванов Иван</span>
+                                <p>Путешественник</p>
+                            </div>
+                        </div>
+                    </article>
+                    <footer class="bottom">
+                        <a href="">Подробнее</a>
+                    </footer>
+                </article>
+                <article class="popular-card" onclick="location.href='#'">
+                    <img src="static/images/new-news/hero-1.jpg" alt="Фото" loading="lazy" aria-hidden="true">
+                    <h2>Lorem ipsum, dolor sit amet consectetur adipisicing.</h2>
+                </article>
+                <article class="popular-card" onclick="location.href='#'">
+                    <h2>Lorem ipsum dolor sit amet consectetur adipisicing.</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos delectus officiis dignissimos id?
+                    </p>
+                    <time datetime="2024-12-12">Дек, 12</time>
+                </article>
+                <article class="popular-card" onclick="location.href='#'">
+                    <h2>Lorem ipsum dolor sit amet consectetur adipisicing.</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos delectus officiis dignissimos id?
+                    </p>
+                    <time datetime="2024-12-12">Дек, 12</time>
+                </article>
+                <article class="popular-card" onclick="location.href='#'">
+                    <h2>Lorem ipsum dolor sit amet consectetur adipisicing.</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos delectus officiis dignissimos id?
+                    </p>
+                    <time datetime="2024-12-12">Дек, 12</time>
+                </article>
+                <article class="popular-card" onclick="location.href='#'">
+                    <h2>Lorem ipsum dolor sit amet consectetur adipisicing.</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos delectus officiis dignissimos id?
+                    </p>
+                    <time datetime="2024-12-12">Дек, 12</time>
+                </article>
+            </div>
+        </section>
+        <section class="main-news">
+            <h2>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</h2>
+            <a href="" class="button-with-arrow">Читать далее</a>
+        </section>
+        <section class="notes">
+            <div class="container">
+                <section class="all-notes">
+                    <article class="note" onclick="location.href='#'">
+                        <img src="static/images/new-news/art-3.jpg" alt="Фото" loading="lazy" aria-hidden="true">
+                        <div class="right-information">
+                            <div class="top">
+                                <span>Полеты</span>
+                                <i class="fa fa-bookmark" aria-hidden="true"></i>
+                            </div>
+                            <h2>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rerum, tempore!</h2>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus magnam incidunt vel
+                                delectus ad eius at, nisi aspernatur dolor earum.
+                            </p>
+                            <footer class="bottom">
+                                <time datetime="2024-12-12">Дек, 12</time>
+                                <div class="comments-count">
+                                    <i class="fas fa-comment" aria-hidden="true"></i>
+                                    <span>142</span>
+                                </div>
+                                <div class="likes-count">
+                                    <i class="fas fa-heart" aria-hidden="true"></i>
+                                    <span>69</span>
+                                </div>
+                            </footer>
+                        </div>
+                    </article>
+                    <article class="note" onclick="location.href='#'">
+                        <img src="static/images/new-news/hero-1.jpg" alt="Фото" loading="lazy" aria-hidden="true">
+                        <div class="right-information">
+                            <div class="top">
+                                <span>Полеты</span>
+                                <i class="fa fa-bookmark"  aria-hidden="true" data-in-bookmarks></i>
+                            </div>
+                            <h2>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rerum, tempore!</h2>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus magnam incidunt vel
+                                delectus ad eius at, nisi aspernatur dolor earum.
+                            </p>
+                            <div class="bottom">
+                                <time datetime="2024-12-12">Дек, 12</time>
+                                <div class="comments-count" aria-hidden="true">
+                                    <i class="fas fa-comment" aria-hidden="true"></i>
+                                    <span>142</span>
+                                </div>
+                                <div class="likes-count">
+                                    <i class="fas fa-heart" aria-hidden="true"></i>
+                                    <span>69</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="note" onclick="location.href='#'">
+                        <img src="static/images/new-news/hero-1.jpg" alt="Фото" loading="lazy" aria-hidden="true">
+                        <div class="right-information">
+                            <div class="top">
+                                <span>Полеты</span>
+                                <i class="fa fa-bookmark" data-in-bookmarks aria-hidden="true"></i>
+                            </div>
+                            <h2>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rerum, tempore!</h2>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus magnam incidunt vel
+                                delectus ad eius at, nisi aspernatur dolor earum.
+                            </p>
+                            <div class="bottom">
+                                <time datetime="2024-12-12">Дек, 12</time>
+                                <div class="comments-count">
+                                    <i class="fas fa-comment" aria-hidden="true"></i>
+                                    <span>142</span>
+                                </div>
+                                <div class="likes-count">
+                                    <i class="fas fa-heart" aria-hidden="true"></i>
+                                    <span>69</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="note" onclick="location.href='#'">
+                        <img src="static/images/new-news/hero-1.jpg" alt="Фото" loading="lazy" aria-hidden="true">
+                        <div class="right-information">
+                            <div class="top">
+                                <span>Полеты</span>
+                                <i class="fa fa-bookmark" data-in-bookmarks aria-hidden="true"></i>
+                            </div>
+                            <h2>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rerum, tempore!</h2>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus magnam incidunt vel
+                                delectus ad eius at, nisi aspernatur dolor earum.
+                            </p>
+                            <div class="bottom">
+                                <time datetime="2024-12-12">Дек, 12</time>
+                                <div class="comments-count">
+                                    <i class="fas fa-comment" aria-hidden="true"></i>
+                                    <span>142</span>
+                                </div>
+                                <div class="likes-count">
+                                    <i class="fas fa-heart" aria-hidden="true"></i>
+                                    <span>69</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="note" onclick="location.href='#'">
+                        <img src="static/images/new-news/hero-1.jpg" alt="Фото" loading="lazy" aria-hidden="true">
+                        <div class="right-information">
+                            <div class="top">
+                                <span>Полеты</span>
+                                <i class="fa fa-bookmark" data-in-bookmarks aria-hidden="true"></i>
+                            </div>
+                            <h2>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rerum, tempore!</h2>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus magnam incidunt vel
+                                delectus ad eius at, nisi aspernatur dolor earum.
+                            </p>
+                            <div class="bottom">
+                                <time datetime="2024-12-12">Дек, 12</time>
+                                <div class="comments-count">
+                                    <i class="fas fa-comment" aria-hidden="true"></i>
+                                    <span>142</span>
+                                </div>
+                                <div class="likes-count">
+                                    <i class="fas fa-heart" aria-hidden="true"></i>
+                                    <span>69</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="note" onclick="location.href='#'">
+                        <img src="static/images/new-news/hero-1.jpg" alt="Фото" loading="lazy" aria-hidden="true">
+                        <div class="right-information">
+                            <div class="top">
+                                <span>Полеты</span>
+                                <i class="fa fa-bookmark" aria-hidden="true"></i>
+                            </div>
+                            <h2>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rerum, tempore!</h2>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus magnam incidunt vel
+                                delectus ad eius at, nisi aspernatur dolor earum.
+                            </p>
+                            <div class="bottom">
+                                <time datetime="2024-12-12">Дек, 12</time>
+                                <div class="comments-count">
+                                    <i class="fas fa-comment" aria-hidden="true"></i>
+                                    <span>142</span>
+                                </div>
+                                <div class="likes-count">
+                                    <i class="fas fa-heart" aria-hidden="true"></i>
+                                    <span>69</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </section>
+                <section class="recommended-notes">
+                    <h2>Рекомендуем Вам</h2>
+                    <article class="recommended-note" onclick="location.href='#'">
+                        <img src="static/images/new-news/news1.jpg" alt="фото" loading="lazy" aria-hidden="true" width="60" height="60">
+                        <div class="right-information">
+                            <span>Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
+                            <time datetime="">15 минут назад</time>
+                        </div>
+                    </article>
+                    <article class="recommended-note" onclick="location.href='#'">
+                        <img src="static/images/new-news/news1.jpg" alt="фото" loading="lazy" aria-hidden="true" width="60" height="60">
+                        <div class="right-information">
+                            <span>Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
+                            <time datetime="">15 минут назад</time>
+                        </div>
+                    </article>
+                    <article class="recommended-note" onclick="location.href='#'">
+                        <img src="static/images/new-news/news1.jpg" alt="фото" loading="lazy" aria-hidden="true">
+                        <div class="right-information">
+                            <span>Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
+                            <time datetime="">15 минут назад</time>
+                        </div>
+                    </article>
+                    <article class="recommended-note" onclick="location.href='#'">
+                        <img src="static/images/new-news/news1.jpg" alt="фото" loading="lazy" aria-hidden="true" width="60" height="60">
+                        <div class="right-information">
+                            <span>Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
+                            <time datetime="">15 минут назад</time>
+                        </div>
+                    </article>
+                    <article class="recommended-note" onclick="location.href='#'">
+                        <img src="static/images/new-news/news1.jpg" alt="фото" loading="lazy" aria-hidden="true" width="60" height="60">
+                        <div class="right-information">
+                            <span>Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
+                            <time datetime="">15 минут назад</time>
+                        </div>
+                    </article>
+                    <article class="recommended-note" onclick="location.href='#'">
+                        <img src="static/images/new-news/news1.jpg" alt="фото" loading="lazy" aria-hidden="true" width="60" height="60">
+                        <div class="right-information">
+                            <span>Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
+                            <time datetime="">15 минут назад</time>
+                        </div>
+                    </article>
+                    <article class="recommended-note" onclick="location.href='#'">
+                        <img src="static/images/new-news/news1.jpg" alt="фото" loading="lazy" aria-hidden="true" width="60" height="60">
+                        <div class="right-information">
+                            <span>Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
+                            <time datetime="">15 минут назад</time>
+                        </div>
+                    </article>
+                    <footer class="bottom">
+                        <a href="">Подробнее</a>
+                    </footer>
+                </section>
+            </div>
+        </section>
+        <section class="hot">
+            <div class="container">
+                <article class="block" onclick="location.href='#'">
+                    <div class="hot-label">Hot</div>
+                    <div class="top">
+                        <img src="static/images/author.png" alt="Фото" loading="lazy">
+                        <span>Иванов Иван</span>
+                        <p>Фотограф</p>
+                    </div>
+                    <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, ipsam.</h2>
+                    <a href=""><i class="fas fa-images" aria-hidden="true"></i>&nbsp;Читать далее</a>
+                </article>
+                <article class="block" onclick="location.href='#'">
+                    <div class="left-information">
+                        <span>Технологии</span>
+                        <h2>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cumque, optio.</h2>
+                        <p>
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quia temporibus beatae, nostrum
+                            laborum vero animi! Unde magni totam in nisi quam ex illo inventore voluptatibus.
+                        </p>
+                        <a href="" class="button-with-arrow">Читать далее</a>
+                    </div>
+                    <img src="static/images/bronse_horsmen.png" alt="Фото" loading="lazy" aria-hidden="true">
+                </article>
+                <article class="block" onclick="location.href='#'">
+                    <h2>Lorem ipsum dolor sit amet consectetur adipisicing.</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos delectus officiis dignissimos id?</p>
+                    <time datetime="2024-12-12">Дек, 12</time>
+                </article>
+                <article class="block" onclick="location.href='#'">
+                    <h2>Lorem ipsum dolor sit amet consectetur adipisicing.</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos delectus officiis dignissimos id?</p>
+                    <time datetime="2024-12-12">Дек, 12</time>
+                </article>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            <section class="footer-links">
+                <div class="links-block">
+                    <h3>Новости</h3>
+                    <ul>
+                        <li><a href="">В стране</a></li>
+                        <li><a href="">В мире</a></li>
+                        <li><a href="">Политика</a></li>
+                    </ul>
+                </div>
+                <div class="links-block">
+                    <h3>Искусство</h3>
+                    <ul>
+                        <li><a href="">Искусство и дизайн</a></li>
+                        <li><a href="">Фильмы</a></li>
+                        <li><a href="">Люди</a></li>
+                        <li><a href="">Театр</a></li>
+                    </ul>
+                </div>
+                <div class="links-block">
+                    <h3>Путешествия</h3>
+                    <ul>
+                        <li><a href="">Города</a></li>
+                        <li><a href="">Полеты</a></li>
+                        <li><a href="">Деловые поездки</a></li>
+                    </ul>
+                </div>
+                <div class="links-block">
+                    <h3>Спорт</h3>
+                    <ul>
+                        <li><a href="">Олимпийский игры</a></li>
+                        <li><a href="">Автоспорт</a></li>
+                        <li><a href="">Волейбол</a></li>
+                        <li><a href="">Футбол</a></li>
+                        <li><a href="">Фигурное катание</a></li>
+                        <li><a href="">Велоспорт</a></li>
+                    </ul>
+                </div>
+                <div class="links-block">
+                    <h3>Технологии</h3>
+                    <ul>
+                        <li><a href="">Обзоры</a></li>
+                        <li><a href="">Новинки</a></li>
+                        <li><a href="">Техника</a></li>
+                    </ul>
+                </div>
+                <div class="links-block">
+                    <h3>Деньги</h3>
+                    <ul>
+                        <li><a href="">Рынки</a></li>
+                        <li><a href="">Бизнес</a></li>
+                        <li><a href="">Личные финансы</a></li>
+                        <li><a href="">Карьера</a></li>
+                    </ul>
+                </div>
+            </section>
+            <section class="contacts">
+                <ul class="left-information">
+                    <li><a href="#" aria-label="иконка компании (переход на главную)">
+                        <img src="static/images/bronse_horsmen.ico" alt="иконка компании" aria-hidden="true" width="48" height="48">
+                    </a></li>
+                    <li>Связаться с нами</li>
+                </ul>
+
+                
+                <ul class="right-information">
+                    <li><a href="#"><img src="static/images/logos/telegram.png" alt="иконка телеграмм" width="32" height="32"></a></li>
+                    <li><a href="#"><img src="static/images/logos/vk.png" alt="иконка вк" width="32" height="32"></a></li>
+                </ul>
+            </section>
+        </div>
+    </footer>
+</body>
+
+</html>

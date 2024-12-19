@@ -1,0 +1,30 @@
+.header-navigation {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    background-color: var(--color-black);
+}
+
+.header-navigation > .container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+.header-navigation ul {
+    display: flex;
+    justify-content: space-between;
+    padding: 2em 0;
+    list-style: none;
+}
+
+.header-navigation a {
+    display: inline-block;
+    font-size: var(--fz-small);
+    text-transform: uppercase;
+    transition: transform .2s linear, box-shadow .3s linear;
+}
+
+.header-navigation a:hover {
+    transform: translateY(-4px);
+    box-shadow: 1px 1px 3px rgba(217, 218, 219, .3);
+}

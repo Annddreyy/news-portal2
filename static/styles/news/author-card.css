@@ -1,0 +1,81 @@
+.author-card {
+    position: absolute;
+    left: 65%;
+    top: calc(-5em - 10vh);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+    background-color: var(--color-white);
+    width: 264px;
+    height: 370px;
+    padding: 2em 2em 0.5em 2em;
+    border: 1px solid var(--color-dark-gray);
+    border-radius: 8px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.author-card .author {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.author-card .author img {
+    width: 90px;
+    height: 90px;
+    margin-bottom: 1em;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.news-text .author h2 {
+    font-size: var(--fz-large);
+}
+
+.author span {
+    color: var(--color-border-gray);
+    font-size: var(--fz-small);
+    font-weight: lighter;
+}
+
+.author-card .social {
+    display: flex;
+    gap: 1em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.author-card .social * {
+    width: 24px;
+    height: 24px;
+    color: var(--color-dark-gray);
+    padding: 8px;
+    text-align: center;
+    vertical-align:bottom;
+    border-radius: 50%;
+    border: 1px solid var(--color-dark-gray);
+}
+
+.author-card > a {
+    font-size: var(--fz-small);
+    font-weight: bolder;
+}
+
+.author-card > .bottom a {
+    display: inline-block;
+    padding: 1em 0 0.3em 0;
+    color: var(--color-black);
+    font-size: var(--fz-small);
+    font-weight: bolder;
+}
+
+.author-card > .bottom::before {
+    position: absolute;
+    content: " ";
+    left: 0;
+    right: 0;
+    border-top: 1px solid var(--color-dark-gray);
+}

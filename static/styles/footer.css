@@ -1,0 +1,114 @@
+footer > .container {
+    max-width: var(--max-width);
+    margin: 2em auto;
+}
+
+.footer-links {
+    position: relative;
+}
+
+.footer-links {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+}
+
+.footer-links::after {
+    position: absolute;
+    content: " ";
+    bottom: -1em;
+    left: 0;
+    right: 0;
+    border-bottom: 1px solid var(--color-dark-gray);
+}
+
+.footer-links .links-block {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    padding-top: 1em;
+    padding-left: 0.5em;
+    border-top: 4px solid;
+}
+
+.footer-links .links-block ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    list-style: none;
+}
+
+.footer-links .links-block a {
+    font-size: var(--fz-small);
+    color: var(--color-border-gray);
+    list-style: none;
+}
+
+.footer-links .links-block a:hover {
+    box-shadow: 1px 1px 3px var(--color-border-gray);
+}
+
+.footer-links .links-block h3 {
+    font-size: var(--fz-small);
+    color: var(--color-light-black);
+}
+
+.footer-links .links-block:nth-child(1) {
+    border-top-color: lightcoral;
+}
+
+.footer-links .links-block:nth-child(2){
+    border-top-color: violet;
+}
+
+.footer-links .links-block:nth-child(3) {
+    border-top-color: lightskyblue;
+}
+
+.footer-links .links-block:nth-child(4) {
+    border-top-color: orange;
+}
+
+.footer-links .links-block:nth-child(5) {
+    border-top-color: lightgreen;
+}
+
+.footer-links .links-block:nth-child(6) {
+    border-top-color: lightslategray;
+}
+
+.contacts {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2em;
+}
+
+.contacts ul {
+    list-style: none;
+}
+
+.contacts > .left-information {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+.contacts > .right-information {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+}
+
+
+.contacts > .left-information > li:last-child {
+    font-size: var(--fz-medium);
+    color: var(--color-border-gray);
+}
+
+.contacts > .left-information img {
+    width: 3em;
+}
+
+.contacts > .right-information img {
+    width: 2em;
+}
