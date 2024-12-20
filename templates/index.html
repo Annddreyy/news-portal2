@@ -107,38 +107,16 @@
             <div class="container">
                 <section class="new-news">
                     <ul>
-                        <li>
-                            <a href="#">
-                                <article class="new-news-item">
-                                    <h2>Ученые из Москвы сделали новое открытие в физике</h2>
-                                    <img src="static/images/new-news/news1.jpg" alt="Фото" aria-hidden="true" width="2" height="1">
-                                </article>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <article class="new-news-item">
-                                    <h2>Ученые из Москвы сделали новое открытие в физике</h2>
-                                    <img src="static/images/new-news/news1.jpg" alt="Фото" aria-hidden="true" width="2" height="1">
-                                </article>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <article class="new-news-item">
-                                    <h2>Ученые из Москвы сделали новое открытие в физике</h2>
-                                    <img src="static/images/new-news/news1.jpg" alt="Фото" aria-hidden="true" width="2" height="1">
-                                </article>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <article class="new-news-item">
-                                    <h2>Ученые из Москвы сделали новое открытие в физике</h2>
-                                    <img src="static/images/new-news/news1.jpg" alt="Фото" aria-hidden="true" width="2" height="1">
-                                </article>
-                            </a>
-                        </li>
+                        {% for i in range(4): %}
+                            <li>
+                                <a href="/news/1"">
+                                    <article class="new-news-item">
+                                        <h2>Ученые из Москвы сделали новое открытие в физике</h2>
+                                        <img src="static/images/new-news/news1.jpg" alt="Фото" aria-hidden="true" width="2" height="1">
+                                    </article>
+                                </a>
+                            </li>
+                        {% endfor %}
                     </ul>
                 </section>
                 <section class="recommended-news">

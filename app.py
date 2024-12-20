@@ -9,7 +9,7 @@ app = Flask(__name__)
 
 app.config['SECRET_KEY'] = '12foefwjf039423wd2808r'
 
-app.permanent_session_lifetime = timedelta(minutes=5)
+app.permanent_session_lifetime = timedelta(minutes=1)
 
 app.register_blueprint(main_page_blueprint)
 app.register_blueprint(authorization_page_blueprint)

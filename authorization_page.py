@@ -22,6 +22,6 @@ def authorization_page():
     for user in users:
         if user['login'] == login and user['password'] == hash_code:
             session['user_id'] = user['id']
-            return redirect(url_for('main_page.main_page'))
+            return redirect(session['page'])
 
     return render_template('authorization.html', error_message='Неверный логин или пароль!')

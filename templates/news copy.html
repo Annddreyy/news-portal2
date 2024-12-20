@@ -18,7 +18,7 @@
     <meta name="twitter:image:src" content="https://github.com/Annddreyy/news-portal/blob/main/static/images/bronse_horsmen.png?raw=true" />
     <meta name="twitter:image:alt" content="Медный всадник" />
 
-    <title>Новость</title>
+    <title>{{ news['title'] }}</title>
     <link rel="shortcut icon" href="/static/images/bronse_horsmen.ico" type="image/x-icon">
     <meta name="description" content="Новость">
 
@@ -107,10 +107,11 @@
         </div>
     </nav>
     <main>
-        <section class="top-part">
+        <section class="top-part" style="background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url({{ news['poster'] }});">
             <div class="container">
                 <div class="top-information">
-                    <span>Наука</span>
+                    <span style="color: {{ news['color'] }};">{{ news['subgroup'] }}</span>
                     <div class="right-information">
                         <i class="fa fa-home" aria-hidden="true"></i>
                         <button>←&nbsp;Предыдущая</button>
@@ -119,14 +120,14 @@
                 </div>
                 <h1>
                     <i class="fa fa-bookmark" aria-hidden="true"></i>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, iusto.
+                    {{ news['title'] }}
                 </h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, tempora?</p>
+                <p>{{ news['short_description'] }}</p>
                 <div class="bottom-information">
                     <div class="indicators">
                         <div class="time">
                             <i class="fa fa-clock" aria-hidden="true"></i>
-                            <time datetime="2024-12-12">Дек 12, 15:30</time>
+                            <time datetime="{{ news['date'].split()[0] }}">{{ formatted_date }}</time>
                         </div>
                         <div class="likes">
                             <i class="fa fa-heart" aria-hidden="true"></i>
@@ -147,9 +148,9 @@
         <section class="news-text">
             <article class="author-card" onclick="location.href='#'">
                 <div class="author">
-                    <img src="/static/images/author2.png" alt="Фото">
-                    <h2>Петрова Анастасия</h2>
-                    <span>Путешественник</span>
+                    <img src="https://github.com/Annddreyy/news-portal-images/blob/main/users/{{ author['photo'] }}?raw=true" alt="Фото">
+                    <h2>{{ author['surname'] }} {{ author['name'] }}</h2>
+                    <span>{{ news['author_role'] }}</span>
                 </div>
                 <span>82 статьи</span>
                 <div class="social">
@@ -161,7 +162,7 @@
                     <a href="#">Узнать о авторе</a>
                 </footer>
             </article>
-            <aside class="another-news" onclick="location.href='#'">
+            <article class="another-news" onclick="location.href='#'">
                 <h2>Статья по теме</h2>
                 <img src="/static/images/new-news/hero-1.jpg" alt="Фото">
                 <h3>Lorem ipsum, dolor sit amet consectetur adipisicing.</h3>
@@ -179,187 +180,9 @@
                         <span>102</span>
                     </div>
                 </div>
-            </aside>
+            </article>
             <div class="container">
-                <section class="news-text-block">
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab vitae temporibus quod officiis
-                        perspiciatis
-                        quos accusamus nihil voluptatum nobis repellendus! Corrupti, tempora? Deleniti accusamus
-                        molestias vitae
-                        iure similique possimus id consequuntur impedit voluptate laboriosam. Doloribus, eum pariatur
-                        doloremque
-                        dolorum provident quam. Iure ea consectetur accusamus earum, provident magnam reiciendis quod
-                        laudantium
-                        asperiores odio pariatur molestias aut repellat qui corporis accusantium esse recusandae
-                        blanditiis
-                        expedita quisquam aliquam cum. Consequuntur illo quibusdam similique voluptatum sint asperiores,
-                        nobis
-                        repellendus ipsam, ex veritatis at?
-                    </p>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia magnam iusto optio in error,
-                        temporibus
-                        amet ut cupiditate eius asperiores eum, nihil iure facere? Quasi id libero error quae nihil
-                        quis, eaque
-                        aperiam quam asperiores fuga est iste ipsa pariatur nemo numquam exercitationem facilis esse?
-                    </p>
-                </section>
-                <h2 class="header">Lorem, ipsum.</h2>
-                <section class="news-text-block">
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab vitae temporibus quod officiis
-                        perspiciatis
-                        quos accusamus nihil voluptatum nobis repellendus! Corrupti, tempora? Deleniti accusamus
-                        molestias vitae
-                        iure similique possimus id consequuntur impedit voluptate laboriosam. Doloribus, eum pariatur
-                        doloremque
-                        dolorum provident quam. Iure ea consectetur accusamus earum, provident magnam reiciendis quod
-                        laudantium
-                        asperiores odio pariatur molestias aut repellat qui corporis accusantium esse recusandae
-                        blanditiis
-                        expedita quisquam aliquam cum. Consequuntur illo quibusdam similique voluptatum sint asperiores,
-                        nobis
-                        repellendus ipsam, ex veritatis at?
-                    </p>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia magnam iusto optio in error,
-                        temporibus
-                        amet ut cupiditate eius asperiores eum, nihil iure facere? Quasi id libero error quae nihil
-                        quis, eaque
-                        aperiam quam asperiores fuga est iste ipsa pariatur nemo numquam exercitationem facilis esse?
-                    </p>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab vitae temporibus quod officiis
-                        perspiciatis
-                        quos accusamus nihil voluptatum nobis repellendus! Corrupti, tempora? Deleniti accusamus
-                        molestias vitae
-                        iure similique possimus id consequuntur impedit voluptate laboriosam. Doloribus, eum pariatur
-                        doloremque
-                        dolorum provident quam. Iure ea consectetur accusamus earum, provident magnam reiciendis quod
-                        laudantium
-                        asperiores odio pariatur molestias aut repellat qui corporis accusantium esse recusandae
-                        blanditiis
-                        expedita quisquam aliquam cum. Consequuntur illo quibusdam similique voluptatum sint asperiores,
-                        nobis
-                        repellendus ipsam, ex veritatis at?
-                    </p>
-                </section>
-                <section class="images">
-                    <img src="/static/images/new-news/hero-1.jpg" alt="фото" loading="lazy" aria-hidden="true">
-                    <div class="bottom-information">
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
-                        <div class="author">
-                            <img src="/static/images/author2.png" alt="фото" loading="lazy">
-                            <div class="author-right-information">
-                                <p>Петрова Анастасия</p>
-                                <span>Фотограф</span>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <section class="news-text-block">
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab vitae temporibus quod officiis
-                        perspiciatis
-                        quos accusamus nihil voluptatum nobis repellendus! Corrupti, tempora? Deleniti accusamus
-                        molestias vitae
-                        iure similique possimus id consequuntur impedit voluptate laboriosam. Doloribus, eum pariatur
-                        doloremque
-                        dolorum provident quam. Iure ea consectetur accusamus earum, provident magnam reiciendis quod
-                        laudantium
-                        asperiores odio pariatur molestias aut repellat qui corporis accusantium esse recusandae
-                        blanditiis
-                        expedita quisquam aliquam cum. Consequuntur illo quibusdam similique voluptatum sint asperiores,
-                        nobis
-                        repellendus ipsam, ex veritatis at?
-                    </p>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia magnam iusto optio in error,
-                        temporibus
-                        amet ut cupiditate eius asperiores eum, nihil iure facere? Quasi id libero error quae nihil
-                        quis, eaque
-                        aperiam quam asperiores fuga est iste ipsa pariatur nemo numquam exercitationem facilis esse?
-                    </p>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab vitae temporibus quod officiis
-                        perspiciatis
-                        quos accusamus nihil voluptatum nobis repellendus! Corrupti, tempora? Deleniti accusamus
-                        molestias vitae
-                        iure similique possimus id consequuntur impedit voluptate laboriosam. Doloribus, eum pariatur
-                        doloremque
-                        dolorum provident quam. Iure ea consectetur accusamus earum, provident magnam reiciendis quod
-                        laudantium
-                        asperiores odio pariatur molestias aut repellat qui corporis accusantium esse recusandae
-                        blanditiis
-                        expedita quisquam aliquam cum. Consequuntur illo quibusdam similique voluptatum sint asperiores,
-                        nobis
-                        repellendus ipsam, ex veritatis at?
-                    </p>
-                </section>
-                <section class="quote">
-                    <h2>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus perspiciatis doloremque
-                        aspernatur! In odit totam recusandae dolor velit, libero natus.
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, possimus.
-                        Lorem ipsum dolor sit amet, consectetur adipisicing.
-                    </h2>
-                    <div class="author">
-                        <img src="/static/images/author2.png" alt="фото" loading="lazy">
-                        <p>Петрова Анастасия</p>
-                        <span>Путешественник</span>
-                    </div>
-                </section>
-                <section class="news-text-block">
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab vitae temporibus quod officiis
-                        perspiciatis
-                        quos accusamus nihil voluptatum nobis repellendus! Corrupti, tempora? Deleniti accusamus
-                        molestias vitae
-                        iure similique possimus id consequuntur impedit voluptate laboriosam. Doloribus, eum pariatur
-                        doloremque
-                        dolorum provident quam. Iure ea consectetur accusamus earum, provident magnam reiciendis quod
-                        laudantium
-                        asperiores odio pariatur molestias aut repellat qui corporis accusantium esse recusandae
-                        blanditiis
-                        expedita quisquam aliquam cum. Consequuntur illo quibusdam similique voluptatum sint asperiores,
-                        nobis
-                        repellendus ipsam, ex veritatis at?
-                    </p>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia magnam iusto optio in error,
-                        temporibus
-                        amet ut cupiditate eius asperiores eum, nihil iure facere? Quasi id libero error quae nihil
-                        quis, eaque
-                        aperiam quam asperiores fuga est iste ipsa pariatur nemo numquam exercitationem facilis esse?
-                    </p>
-                </section>
-                <section class="tags">
-                    <span>Путешествия</span>
-                    <span>Природа</span>
-                    <span>Мир</span>
-                    <span>Наука</span>
-                </section>
-                <section class="support-author">
-                    <h2>Поддержите автора</h2>
-                    <div class="types-of-support">
-                        <div class="type-of-support" onclick="location.href='#'">
-                            <i class="fa fa-heart" aria-hidden="true"></i>
-                            <p>Лайк</p>
-                            <span>42</span>
-                        </div>
-                        <div class="type-of-support" onclick="location.href='#'">
-                            <i class="fa fa-vk" aria-hidden="true"></i>
-                            <p>Поделиться</p>
-                            <span>42</span>
-                        </div>
-                        <div class="type-of-support" onclick="location.href='#'">
-                            <i class="fa fa-twitter" aria-hidden="true"></i>
-                            <p>Поделиться</p>
-                            <span>42</span>
-                        </div>
-                    </div>
-                </section>
+                {{ text|safe }}
             </div>
         </section>
         <section class="news">

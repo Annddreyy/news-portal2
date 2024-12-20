@@ -46,7 +46,8 @@ def registration_page():
 
     if message.get('status') == 'ok':
         session['user_id'] = message.get('id')
-        return redirect(url_for('main_page.main_page'))
+        
+        return redirect(session['page'])
     
     return render_template('registration.html', error_message='Произошла ошибка, попробуйте снова!')
 
